@@ -39,11 +39,19 @@ public class CustomerTest extends BaseTest {
         
         ncp.enterMobileNumber("9876543210");
         
-        ncp.enterEmail("arjun1256@gmail.com");
+        String email = "user" + System.currentTimeMillis() + "@gmail.com";
+
+        ncp.enterEmail(email);
         
         ncp.enterPassword("Arjun@123");
         
         ncp.clickSubmit();
+
+        try {
+            Thread.sleep(10000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
         String customerId = ncp.getCustomerId();
 

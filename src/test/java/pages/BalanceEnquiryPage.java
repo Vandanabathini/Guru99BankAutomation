@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class BalanceEnquiryPage {
 
@@ -18,7 +19,12 @@ public class BalanceEnquiryPage {
 
     public void clickBalanceEnquiry()
     {
-        driver.findElement(balanceEnquiryLink).click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        js.executeScript(
+                "arguments[0].click();",
+                driver.findElement(balanceEnquiryLink)
+        );
     }
     
     public void enterAccountNumber(String accNo)
